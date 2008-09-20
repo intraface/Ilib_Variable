@@ -1,6 +1,6 @@
 <?php
 
-class Ilib_Variable_Float_Local_Dadk implements Ilib_Variable_Float_Local
+class Ilib_Variable_Float_Local_Dadk implements Ilib_Variable_Local
 {
     
     

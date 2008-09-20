@@ -1,6 +1,6 @@
 <?php
 
-interface  Ilib_Variable_Float_Local
+interface  Ilib_Variable_Local
 {
     public function convertLocalToIso($var);
     

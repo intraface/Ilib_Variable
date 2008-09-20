@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for handling variables of the type float
+ * Class for handling date time string variables
  *
  * PHP version 5
  *
@@ -11,24 +11,23 @@
  */
 
 /**
- * Class for handling variables of the type float
+ * Class for handling date time string variables
  *
  * @category   Ilib
  * @package    Ilib_Variable
  * @author     Sune Jensen <sune@intraface.dk>
  */
-class Ilib_Variable_Float extends Ilib_Variable
+class Ilib_Variable_String_DateTime extends Ilib_Variable
 {
     
     /**
      * Constructor
      * 
-     * @param mixed float in local
+     * @param string datetime in given local
      * @param string local code for local
      */
-    public function __construct($float, $local = 'iso')
+    public function __construct($date_time, $local = 'iso')
     {
-        parent::__construct($float, $local);
-    }
-    
+        parent::__construct($date_time, $local);
+    }    
 }
