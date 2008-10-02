@@ -4,7 +4,7 @@
     <taskdef classname="phing.tasks.ext.IlibPearDeployerTask" name="peardeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.1.0" />
+    <property name="version" value="0.2.0" />
     <property name="stability" value="alpha" />
     <property name="pear.channel" value="public.intraface.dk" />
 
@@ -53,7 +53,7 @@
                 <php minimum_version="5.2.0" />
                 <pear minimum_version="1.6.0" recommended_version="1.6.1" />
             </dependencies>
-            <notes>* initial release. Added Ilib_Variable_Float, Ilib_Variable_String_Date, Ilib_Variable_String_Time, Ilib_Variable_String_DateTime for da_dk</notes>
+            <notes>* Renamed get() to getAsLocal() and getAsIso()</notes>
         </d51pearpkg2>
     </target>
 
