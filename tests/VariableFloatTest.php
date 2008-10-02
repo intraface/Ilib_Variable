@@ -8,13 +8,13 @@ class VariableFloatTest extends PHPUnit_Framework_TestCase
     function testGetIsoAsDadk()
     {
         $float = new Ilib_Variable_Float(23.45);
-        $this->assertEquals('23,45', $float->get('da_dk'));
+        $this->assertEquals('23,45', $float->getAsLocal('da_dk'));
     }
     
     function testGetDadkAsIso() 
     {
         $float = new Ilib_Variable_Float('23,45', 'da_dk');
-        $this->assertEquals(23.45, $float->get());
+        $this->assertEquals(23.45, $float->getAsIso());
     }
     
     function testGetRawDadk() 

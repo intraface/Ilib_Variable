@@ -53,9 +53,20 @@ abstract class Ilib_Variable
      * @param string local the local to return the float in
      * @return mixed variable in given local
      */
-    public function get($local = 'iso')
+    public function getAsLocal($local)
     {
         return $this->convertIsoToLocal($this->variable_iso, $local);
+    }
+    
+    /**
+     * Returns the variable in iso
+     * 
+     * @param string local the local to return the float in
+     * @return float variable in given iso
+     */
+    public function getAsIso()
+    {
+        return $this->convertIsoToLocal($this->variable_iso, 'iso');
     }
     
     /**
