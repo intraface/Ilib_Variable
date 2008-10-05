@@ -87,12 +87,12 @@ abstract class Ilib_Variable
      */
     protected function convertLocalToIso($variable, $local)
     {
-        if($local == 'iso') {
+        if ($local == 'iso') {
             return $variable;
         }
         
         $class_name = get_class($this).'_Local_'.ucfirst(strtolower(str_replace('_', '', $local)));
-        if(!class_exists($class_name)) {
+        if (!class_exists($class_name)) {
             throw new Exception('Unsupported local '.$local);
         }
         $local_float = new $class_name; 
@@ -108,12 +108,12 @@ abstract class Ilib_Variable
      */
     protected function convertIsoToLocal($variable, $local) 
     {
-        if($local == 'iso') {
+        if ($local == 'iso') {
             return $variable;
         }
         
         $class_name = get_class($this).'_Local_'.ucfirst(strtolower(str_replace('_', '', $local)));
-        if(!class_exists($class_name)) {
+        if (!class_exists($class_name)) {
             throw new Exception('Unsupported local '.$local);
         }
         $local_float = new $class_name; 
