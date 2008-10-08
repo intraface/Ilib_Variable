@@ -31,4 +31,22 @@ class Ilib_Variable_Float extends Ilib_Variable
         parent::__construct($float, $local);
     }
     
+    public function getAsIso($precision = NULL)
+    {
+        
+        if(is_int($precision)) {
+            return round(parent::getAsIso(), $precision);
+        }
+        else {
+            return parent::getAsIso();
+        }
+    }
+    
+    public function getAsLocal($local, $precision = NULL)
+    {
+        $class_name = $this->getLocalClassName($local);
+        $local_float = new $class_name; 
+        return $local_float->convertIsoToLocal($this->getAsIso($precision));
+    }
+    
 }

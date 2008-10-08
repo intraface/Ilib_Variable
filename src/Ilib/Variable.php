@@ -44,7 +44,15 @@ abstract class Ilib_Variable
     {
         $this->variable = $variable;
         $this->local = $local;
-        $this->variable_iso = $this->convertLocalToIso($variable, $local);
+        
+        if($local == 'iso') {
+            $this->variable_iso = $variable;
+        }
+        else {
+            $class_name = $this->getLocalClassName($local);
+            $local_float = new $class_name; 
+            $this->variable_iso = $local_float->convertLocalToIso($variable);
+        }   
     }
     
     /**
@@ -55,7 +63,9 @@ abstract class Ilib_Variable
      */
     public function getAsLocal($local)
     {
-        return $this->convertIsoToLocal($this->variable_iso, $local);
+        $class_name = $this->getLocalClassName($local);
+        $local_float = new $class_name; 
+        return $local_float->convertIsoToLocal($this->variable_iso);
     }
     
     /**
@@ -66,7 +76,7 @@ abstract class Ilib_Variable
      */
     public function getAsIso()
     {
-        return $this->convertIsoToLocal($this->variable_iso, 'iso');
+        return $this->variable_iso;
     }
     
     /**
@@ -79,45 +89,12 @@ abstract class Ilib_Variable
         return $this->variable;
     }
     
-    /**
-     * Convert any local variable to iso float 
-     * 
-     * @param string local which the float is given in
-     * @return mixed variable in iso standard
-     */
-    protected function convertLocalToIso($variable, $local)
+    protected function getLocalClassName($local) 
     {
-        if ($local == 'iso') {
-            return $variable;
-        }
-        
         $class_name = get_class($this).'_Local_'.ucfirst(strtolower(str_replace('_', '', $local)));
-        if (!class_exists($class_name)) {
+        if(!class_exists($class_name)) {
             throw new Exception('Unsupported local '.$local);
         }
-        $local_float = new $class_name; 
-        return $local_float->convertLocalToIso($variable);
+        return $class_name;
     }
-    
-    
-    /**
-     * Converts a iso variable to a local float
-     * 
-     * @param string local local to return the float in
-     * @return mixed variable in given local
-     */
-    protected function convertIsoToLocal($variable, $local) 
-    {
-        if ($local == 'iso') {
-            return $variable;
-        }
-        
-        $class_name = get_class($this).'_Local_'.ucfirst(strtolower(str_replace('_', '', $local)));
-        if (!class_exists($class_name)) {
-            throw new Exception('Unsupported local '.$local);
-        }
-        $local_float = new $class_name; 
-        
-        return $local_float->convertIsoToLocal($variable);
-    } 
 }
