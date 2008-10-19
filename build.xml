@@ -4,7 +4,7 @@
     <taskdef classname="phing.tasks.ext.IlibPearDeployerTask" name="peardeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.2.0" />
+    <property name="version" value="0.2.1" />
     <property name="stability" value="alpha" />
     <property name="pear.channel" value="public.intraface.dk" />
 
@@ -53,7 +53,7 @@
                 <php minimum_version="5.2.0" />
                 <pear minimum_version="1.6.0" recommended_version="1.6.1" />
             </dependencies>
-            <notes>* Renamed get() to getAsLocal() and getAsIso()</notes>
+            <notes>* Added support for parameters to getAsIso() and getAsLocal()</notes>
         </d51pearpkg2>
     </target>
 
@@ -91,13 +91,7 @@
            --log-pmd ${reports.phpunit.dir}/phpunit.pmd.xml
            --coverage-xml ${reports.phpunit.dir}/phpunit.coverage.xml
            --coverage-html ${reports.coverage.dir}/
-           VariableFloatTest" passthru="true" checkreturn="true" />
-        <exec dir="${tests.dir}" command="phpunit
-           --log-xml ${reports.phpunit.dir}/phpunit.xml
-           --log-pmd ${reports.phpunit.dir}/phpunit.pmd.xml
-           --coverage-xml ${reports.phpunit.dir}/phpunit.coverage.xml
-           --coverage-html ${reports.coverage.dir}/
-           VariableStringDateTimeTest" passthru="true" checkreturn="true" />
+           AllTests" passthru="true" checkreturn="true" />
     </target>
 
 </project>
