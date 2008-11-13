@@ -46,7 +46,7 @@ class Ilib_Variable_Float extends Ilib_Variable
     {
         $class_name = $this->getLocalClassName($local);
         $local_float = new $class_name; 
-        return $local_float->convertIsoToLocal($this->getAsIso($precision));
+        return $local_float->convertIsoToLocal($this->getAsIso(), $precision);
     }
     
 }

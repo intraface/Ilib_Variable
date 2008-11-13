@@ -12,11 +12,14 @@ class Ilib_Variable_Float_Local_Dadk implements Ilib_Variable_Local
         return (float)$float;
     }
     
-    public function convertIsoToLocal($float)
+    public function convertIsoToLocal($float, $precision = NULL)
     {
         $float_string = (string)$float;
         
-        if(strpos($float_string, '.') !== false) {
+        if(is_int($precision)) {
+            $decimals = $precision;
+        }
+        elseif(strpos($float_string, '.') !== false) {
             $decimals = strlen(substr($float_string, strpos($float_string, '.')+1));
         }
         else {
