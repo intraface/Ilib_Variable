@@ -64,7 +64,7 @@ abstract class Ilib_Variable
      */
     public function getAsLocal($local)
     {
-        return $this->getAsLocal($local);
+        return $this->getAsLocale($local);
     }
     
     /**

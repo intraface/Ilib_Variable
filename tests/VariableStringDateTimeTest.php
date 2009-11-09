@@ -12,6 +12,12 @@ class VariableStringDateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('23-12-2008 22:45:56', $float->getAsLocal('da_dk'));
     }
     
+    function testGetIsoAsEnus()
+    {
+        $float = new Ilib_Variable_String_DateTime('2008-12-23 22:45:56');
+        $this->assertEquals('2008-12-23 22:45:56', $float->getAsLocal('en_us'));
+    }
+    
     function testGetDadkAsIso() 
     {
         $datetime = new Ilib_Variable_String_DateTime('23-12-2008 22:45:56', 'da_dk');

@@ -1,6 +1,6 @@
 <?php
 
-class Ilib_Variable_String_Time_Local_Dadk implements Ilib_Variable_Local
+class Ilib_Variable_String_Time_Local_Enus implements Ilib_Variable_Local
 {
     
     /**
