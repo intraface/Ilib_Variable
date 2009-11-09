@@ -1,6 +1,6 @@
 <?php
 
-class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
+class Ilib_Variable_String_DateTime_Local_Enus implements Ilib_Variable_Local
 {
     
     /**
@@ -32,7 +32,7 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
         $parts = array_values($parts);
         // if there is a ':' in the last part it is probably date
         if(false ==! strstr($parts[count($parts)-1], ':')) {
-            $time_object = new Ilib_Variable_String_Time_Local_Dadk;
+            $time_object = new Ilib_Variable_String_Time_Local_Enus;
             $time = $time_object->convertLocalToIso($parts[count($parts)-1]);
             // remove the time part
             array_pop($parts);
@@ -40,23 +40,23 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
             $time = date('H:i:s');
         }
         
-        $date_object = new Ilib_Variable_String_Date_Local_Dadk;
+        $date_object = new Ilib_Variable_String_Date_Local_Enus;
         $date = $date_object->convertLocalToIso(implode(' ', $parts));
         return $date.' '.$time;
     }
     
     /**
-     * @see Ilib/Variable/Ilib_Variable_Local#convertIsoToLocal()
+     * Ilib/Variable/Ilib_Variable_Local#convertIsoToLocal()
      */
     public function convertIsoToLocal($date_time)
     {
         
         $parts = explode(' ', $date_time);
         
-        $date_object = new Ilib_Variable_String_Date_Local_Dadk;
+        $date_object = new Ilib_Variable_String_Date_Local_Enus;
         $date = $date_object->convertIsoToLocal($parts[0]);
         
-        $time_object = new Ilib_Variable_String_Time_Local_Dadk;
+        $time_object = new Ilib_Variable_String_Time_Local_Enus;
         $time = $time_object->convertIsoToLocal($parts[1]);
         
         return $date.' '.$time;
@@ -64,3 +64,4 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
     
 }
 
+?>

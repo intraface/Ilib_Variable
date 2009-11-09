@@ -31,6 +31,12 @@ class Ilib_Variable_Float extends Ilib_Variable
         parent::__construct($float, $local);
     }
     
+    /**
+     * Returns the variable in iso
+     * 
+     * @param string local the local to return the float in
+     * @return float variable in given iso
+     */
     public function getAsIso($precision = NULL)
     {
         
@@ -42,11 +48,30 @@ class Ilib_Variable_Float extends Ilib_Variable
         }
     }
     
+    /**
+     * Returns the variable in local
+     * DEPRECATED! Use getAsLocale() instead. 
+     * 
+     * @param string local the local to return the float in
+     * @param integer $precision the precision of the returned float.
+     * @return mixed variable in given local
+     */
     public function getAsLocal($local, $precision = NULL)
+    {
+        return $this->getASLocale($local, $precision);
+    }
+    
+    /**
+     * Returns the variable in local 
+     * 
+     * @param string local the local to return the float in
+     * @param integer $precision the precision of the returned float.
+     * @return mixed variable in given local
+     */
+    public function getAsLocale($local, $precision = NULL)
     {
         $class_name = $this->getLocalClassName($local);
         $local_float = new $class_name; 
         return $local_float->convertIsoToLocal($this->getAsIso(), $precision);
     }
-    
 }

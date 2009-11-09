@@ -57,11 +57,24 @@ abstract class Ilib_Variable
     
     /**
      * Returns the variable in local
+     * DEPRECATED! Use getAsLocale() instead. 
      * 
      * @param string local the local to return the float in
      * @return mixed variable in given local
      */
     public function getAsLocal($local)
+    {
+        return $this->getAsLocal($local);
+    }
+    
+    /**
+     * Returns the variable in locale
+     * Better named than getAsLocal
+     * 
+     * @param string local the local to return the float in
+     * @return mixed variable in given local
+     */
+    public function getASLocale($local)
     {
         $class_name = $this->getLocalClassName($local);
         $local_float = new $class_name; 

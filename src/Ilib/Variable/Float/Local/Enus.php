@@ -1,6 +1,6 @@
 <?php
 
-class Ilib_Variable_Float_Local_Dadk implements Ilib_Variable_Local
+class Ilib_Variable_Float_Local_Enus implements Ilib_Variable_Local
 {
     
     /**
@@ -8,10 +8,7 @@ class Ilib_Variable_Float_Local_Dadk implements Ilib_Variable_Local
      */
     public function convertLocalToIso($float)
     {
-        $float = str_replace('.', '', $float);
-        $float = str_replace(',', '.', $float);
-        
-        return (float)$float;
+        return $float;
     }
     
     /**
@@ -31,7 +28,7 @@ class Ilib_Variable_Float_Local_Dadk implements Ilib_Variable_Local
             $decimals = 0;
         }
         
-        return number_format($float, $decimals, ',', '.');
+        return number_format($float, $decimals, '.', ',');
     }
     
 }

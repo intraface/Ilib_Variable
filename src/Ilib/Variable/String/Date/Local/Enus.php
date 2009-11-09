@@ -1,6 +1,6 @@
 <?php
 
-class Ilib_Variable_String_Date_Local_Dadk implements Ilib_Variable_Local
+class Ilib_Variable_String_Date_Local_Enus implements Ilib_Variable_Local
 {
     
     /**
@@ -15,10 +15,10 @@ class Ilib_Variable_String_Date_Local_Dadk implements Ilib_Variable_Local
         
         $date = trim($date);
         
-        if(ereg("^".$day.$date_separator.$month.$date_separator.$year.'$', $date, $parts)) {
-            return $parts[5]."-".$parts[3]."-".$parts[1];
-        } elseif(ereg("^".$day.$date_separator.$month."$", $date, $parts)) {
-            return date('Y').'-'.$parts[3]."-".$parts[1];
+        if(ereg("^".$year.$date_separator.$month.$date_separator.$day.'$', $date, $parts)) {
+            return $parts[1]."-".$parts[3]."-".$parts[5];
+        } elseif(ereg("^".$month.$date_separator.$day."$", $date, $parts)) {
+            return date('Y').'-'.$parts[1]."-".$parts[3];
         } else {
             /**
              * Is this correct behaviour? Returns today when unable to parse!
@@ -28,11 +28,11 @@ class Ilib_Variable_String_Date_Local_Dadk implements Ilib_Variable_Local
     }
     
     /**
-     * @see Ilib/Variable/Ilib_Variable_Local#convertIsoToLocal()
+     * Ilib/Variable/Ilib_Variable_Local#convertIsoToLocal()
      */
     public function convertIsoToLocal($date)
     {
-        return date('d-m-Y', strtotime($date));
+        return $date;
     }
     
 }
