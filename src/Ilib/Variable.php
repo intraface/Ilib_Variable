@@ -23,20 +23,20 @@ abstract class Ilib_Variable
      * @var mixed variable in local
      */
     private $variable;
-    
+
     /**
      * @var mixed varible in iso standard
      */
     private $variable_iso;
-    
+
     /**
      * @var string local used in class
      */
     private $local;
-    
+
     /**
      * Constructor
-     * 
+     *
      * @param mixed variable in given local
      * @param string local code for local
      */
@@ -44,21 +44,20 @@ abstract class Ilib_Variable
     {
         $this->variable = $variable;
         $this->local = $local;
-        
-        if($local == 'iso') {
+
+        if ($local == 'iso') {
             $this->variable_iso = $variable;
-        }
-        else {
+        } else {
             $class_name = $this->getLocalClassName($local);
-            $local_float = new $class_name; 
+            $local_float = new $class_name;
             $this->variable_iso = $local_float->convertLocalToIso($variable);
-        }   
+        }
     }
-    
+
     /**
      * Returns the variable in local
-     * DEPRECATED! Use getAsLocale() instead. 
-     * 
+     * DEPRECATED! Use getAsLocale() instead.
+     *
      * @param string local the local to return the float in
      * @return mixed variable in given local
      */
@@ -66,24 +65,24 @@ abstract class Ilib_Variable
     {
         return $this->getAsLocale($local);
     }
-    
+
     /**
      * Returns the variable in locale
      * Better named than getAsLocal
-     * 
+     *
      * @param string local the local to return the float in
      * @return mixed variable in given local
      */
     public function getASLocale($local)
     {
         $class_name = $this->getLocalClassName($local);
-        $local_float = new $class_name; 
+        $local_float = new $class_name;
         return $local_float->convertIsoToLocal($this->variable_iso);
     }
-    
+
     /**
      * Returns the variable in iso
-     * 
+     *
      * @param string local the local to return the float in
      * @return float variable in given iso
      */
@@ -91,21 +90,21 @@ abstract class Ilib_Variable
     {
         return $this->variable_iso;
     }
-    
+
     /**
      * Returns the variable in the input format
-     * 
+     *
      * @return mixed variable in input format
      */
     public function getRaw()
     {
         return $this->variable;
     }
-    
-    protected function getLocalClassName($local) 
+
+    protected function getLocalClassName($local)
     {
         $class_name = get_class($this).'_Local_'.ucfirst(strtolower(str_replace('_', '', $local)));
-        if(!class_exists($class_name)) {
+        if (!class_exists($class_name)) {
             throw new Exception('Unsupported local '.$local);
         }
         return $class_name;
