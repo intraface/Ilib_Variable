@@ -1,8 +1,6 @@
 <?php
-
 class Ilib_Variable_String_Date_Local_Dadk implements Ilib_Variable_Local
 {
-    
     /**
      * @see Ilib/Variable/Ilib_Variable_Local#convertLocalToIso()
      */
@@ -11,18 +9,16 @@ class Ilib_Variable_String_Date_Local_Dadk implements Ilib_Variable_Local
         $day            = "([0-3]?[0-9])";
         $month          = "([0-1]?[0-9])";
         $year           = "([0-9][0-9][0-9][0-9]|[0-9]?[0-9])";
-        $date_separator = "(-|\.|/| )";
+        $date_separator = "[-\.\/\s]";
         
         $date = trim($date);
         
-        if(ereg("^".$day.$date_separator.$month.$date_separator.$year.'$', $date, $parts)) {
-            return $parts[5]."-".$parts[3]."-".$parts[1];
-        } elseif(ereg("^".$day.$date_separator.$month."$", $date, $parts)) {
-            return date('Y').'-'.$parts[3]."-".$parts[1];
+        if (preg_match("/^".$day.$date_separator.$month.$date_separator.$year.'$/', $date, $parts)) {
+            return $parts[3]."-".$parts[2]."-".$parts[1];
+        } elseif(preg_match("/^".$day.$date_separator.$month."$/", $date, $parts)) {
+            return date('Y').'-'.$parts[2]."-".$parts[1];
         } else {
-            /**
-             * Is this correct behaviour? Returns today when unable to parse!
-             */
+            // @todo Is this correct behaviour? Returns today when unable to parse!
             return date('Y-m-d');
         }
     }
@@ -33,7 +29,5 @@ class Ilib_Variable_String_Date_Local_Dadk implements Ilib_Variable_Local
     public function convertIsoToLocal($date)
     {
         return date('d-m-Y', strtotime($date));
-    }
-    
+    }   
 }
-

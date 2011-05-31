@@ -1,29 +1,23 @@
 <?php
-
 class Ilib_Variable_String_Time_Local_Dadk implements Ilib_Variable_Local
-{
-    
+{    
     /**
+     * Random possible formats which should be supported
+     * 
+     * 12:34:45
+     * 12:34
+     *
      * @see Ilib/Variable/Ilib_Variable_Local#convertLocalToIso()
      */
     public function convertLocalToIso($time)
     {
-        /**
-         * Random possible formats which should be supported
-         * 
-         * 12:34:45
-         * 12:34
-         */
-        
         $time = trim($time);
         
-        if(ereg("^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$", $time)) {
+        if (preg_match("/^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$/", $time)) {
             return $time;
-        }
-        elseif(ereg("^[0-2]?[0-9]:[0-5]?[0-9]$", $time)) {
+        } elseif(preg_match("/^[0-2]?[0-9]:[0-5]?[0-9]$/", $time)) {
             return $time.':00';
-        }
-        else {
+        } else {
             return date('H:i:s');
         }
     }

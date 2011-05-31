@@ -19,7 +19,6 @@
  */
 class Ilib_Variable_String_Time extends Ilib_Variable
 {
-    
     /**
      * Constructor
      * 

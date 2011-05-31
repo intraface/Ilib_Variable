@@ -56,9 +56,10 @@ abstract class Ilib_Variable
 
     /**
      * Returns the variable in local
-     * DEPRECATED! Use getAsLocale() instead.
+     * @deprecated Use getAsLocale() instead.
      *
      * @param string local the local to return the float in
+     *
      * @return mixed variable in given local
      */
     public function getAsLocal($local)
@@ -71,6 +72,7 @@ abstract class Ilib_Variable
      * Better named than getAsLocal
      *
      * @param string local the local to return the float in
+     *
      * @return mixed variable in given local
      */
     public function getASLocale($local)
@@ -84,6 +86,7 @@ abstract class Ilib_Variable
      * Returns the variable in iso
      *
      * @param string local the local to return the float in
+     *
      * @return float variable in given iso
      */
     public function getAsIso()

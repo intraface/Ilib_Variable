@@ -19,7 +19,6 @@
  */
 class Ilib_Variable_String_DateTime extends Ilib_Variable
 {
-    
     /**
      * Constructor
      * 

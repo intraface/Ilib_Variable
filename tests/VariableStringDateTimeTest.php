@@ -1,11 +1,10 @@
 <?php
 require_once 'config.test.php';
+set_include_path('../src/' . PATH_SEPARATOR . get_include_path());
 require_once 'Ilib/ClassLoader.php';
-require_once 'PHPUnit/Framework.php';
 
 class VariableStringDateTimeTest extends PHPUnit_Framework_TestCase
 {
-    
     function testGetIsoAsDadk()
     {
         $float = new Ilib_Variable_String_DateTime('2008-12-23 22:45:56');
@@ -48,14 +47,11 @@ class VariableStringDateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(date('Y-m-d').' 22:45:56', $datetime->getAsIso());
     }
     
-    
     function testGetRawDadk() 
     {
         $datetime = new Ilib_Variable_String_DateTime('23-12-2008 22:45:56', 'da_dk');
         $this->assertEquals('23-12-2008 22:45:56', $datetime->getRaw());
         
     }
-
 }
 
-?>
