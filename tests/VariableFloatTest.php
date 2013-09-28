@@ -1,5 +1,5 @@
 <?php
-set_include_path('../src/' . PATH_SEPARATOR . get_include_path());
+set_include_path(dirname(__FILE__) . '/../src/' . PATH_SEPARATOR . get_include_path());
 require_once 'Ilib/ClassLoader.php';
 
 class VariableFloatTest extends PHPUnit_Framework_TestCase
