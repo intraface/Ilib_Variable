@@ -5,7 +5,7 @@ before_script:
   - pear channel-discover pear.phpunit.de
   - pear channel-discover public.intraface.dk
   - pear install PHP_CodeSniffer
-  - pear install intrafacepublic/Ilib_ClassLoader
+  - pear install intrafacepublic/Ilib_ClassLoader-0.1.2
   - phpenv rehash
 script: 
   - phpunit ./tests
