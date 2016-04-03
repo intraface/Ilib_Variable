@@ -14,7 +14,7 @@ class Ilib_Variable_String_Date_Local_Enus implements Ilib_Variable_Local
         
         if (preg_match("/^".$year.$date_separator.$month.$date_separator.$day.'$/', $date, $parts)) {
             return $parts[1]."-".$parts[2]."-".$parts[3];
-        } elseif(preg_match("/^".$month.$date_separator.$day."$/", $date, $parts)) {
+        } elseif (preg_match("/^".$month.$date_separator.$day."$/", $date, $parts)) {
             return date('Y').'-'.$parts[1]."-".$parts[2];
         } else {
             // @todo Is this correct behaviour? Returns today when unable to parse!
@@ -30,4 +30,3 @@ class Ilib_Variable_String_Date_Local_Enus implements Ilib_Variable_Local
         return $date;
     }
 }
-

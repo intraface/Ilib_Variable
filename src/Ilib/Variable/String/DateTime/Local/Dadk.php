@@ -3,7 +3,7 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
 {
     /**
      * Random possible formats which should be supported
-     * 
+     *
      * 23/12/2008 12:34:45
      * 23-12-2008 12:34
      * 23/12 2008 12:34:45
@@ -15,7 +15,7 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
      * @see Ilib/Variable/Ilib_Variable_Local#convertLocalToIso()
      */
     public function convertLocalToIso($date_time)
-    {       
+    {
         $parts = explode(' ', $date_time);
         
         if (count($parts) == 0) {
@@ -45,7 +45,7 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
      * @see Ilib/Variable/Ilib_Variable_Local#convertIsoToLocal()
      */
     public function convertIsoToLocal($date_time)
-    {        
+    {
         $parts = explode(' ', $date_time);
         
         $date_object = new Ilib_Variable_String_Date_Local_Dadk;
@@ -57,4 +57,3 @@ class Ilib_Variable_String_DateTime_Local_Dadk implements Ilib_Variable_Local
         return $date.' '.$time;
     }
 }
-

@@ -3,7 +3,7 @@ class Ilib_Variable_String_DateTime_Local_Enus implements Ilib_Variable_Local
 {
     /**
      * Random possible formats which should be supported
-     * 
+     *
      * 23/12/2008 12:34:45
      * 23-12-2008 12:34
      * 23/12 2008 12:34:45
@@ -45,7 +45,7 @@ class Ilib_Variable_String_DateTime_Local_Enus implements Ilib_Variable_Local
      * Ilib/Variable/Ilib_Variable_Local#convertIsoToLocal()
      */
     public function convertIsoToLocal($date_time)
-    {   
+    {
         $parts = explode(' ', $date_time);
         
         $date_object = new Ilib_Variable_String_Date_Local_Enus;
@@ -55,5 +55,5 @@ class Ilib_Variable_String_DateTime_Local_Enus implements Ilib_Variable_Local
         $time = $time_object->convertIsoToLocal($parts[1]);
         
         return $date.' '.$time;
-    }   
+    }
 }

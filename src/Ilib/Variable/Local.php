@@ -1,5 +1,5 @@
 <?php
-interface  Ilib_Variable_Local
+interface Ilib_Variable_Local
 {
     public function convertLocalToIso($var);
 

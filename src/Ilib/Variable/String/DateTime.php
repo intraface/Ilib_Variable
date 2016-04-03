@@ -21,12 +21,12 @@ class Ilib_Variable_String_DateTime extends Ilib_Variable
 {
     /**
      * Constructor
-     * 
+     *
      * @param string datetime in given local
      * @param string local code for local
      */
     public function __construct($date_time, $local = 'iso')
     {
         parent::__construct($date_time, $local);
-    }    
+    }
 }

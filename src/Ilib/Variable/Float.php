@@ -39,7 +39,7 @@ class Ilib_Variable_Float extends Ilib_Variable
      *
      * @return float variable in given iso
      */
-    public function getAsIso($precision = NULL)
+    public function getAsIso($precision = null)
     {
         if (is_int($precision)) {
             return round(parent::getAsIso(), $precision);
@@ -57,7 +57,7 @@ class Ilib_Variable_Float extends Ilib_Variable
      *
      * @return mixed variable in given local
      */
-    public function getAsLocal($local, $precision = NULL)
+    public function getAsLocal($local, $precision = null)
     {
         return $this->getASLocale($local, $precision);
     }
@@ -70,7 +70,7 @@ class Ilib_Variable_Float extends Ilib_Variable
      *
      * @return mixed variable in given local
      */
-    public function getAsLocale($local, $precision = NULL)
+    public function getAsLocale($local, $precision = null)
     {
         $class_name = $this->getLocalClassName($local);
         $local_float = new $class_name;

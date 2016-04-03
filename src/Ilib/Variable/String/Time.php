@@ -21,12 +21,12 @@ class Ilib_Variable_String_Time extends Ilib_Variable
 {
     /**
      * Constructor
-     * 
+     *
      * @param string time in given local
      * @param string local code for local
      */
     public function __construct($time, $local = 'iso')
     {
         parent::__construct($time, $local);
-    }    
+    }
 }
